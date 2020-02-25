@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+    <AWSProjectType>Lambda</AWSProjectType>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Amazon.Lambda.Core" Version="1.1.0" />
+    <PackageReference Include="Amazon.Lambda.Serialization.Json" Version="1.7.0" />
+    <PackageReference Include="EventStore.Client" Version="5.0.6" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="CommandFramework">
+      <HintPath>..\..\..\..\..\FenergoCN\eventsourcedonboarding\EventSourcedOnboarding\CommandFramework\bin\Debug\netstandard2.0\CommandFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Domain">
+      <HintPath>..\..\..\..\..\FenergoCN\eventsourcedonboarding\EventSourcedOnboarding\EventStoreFramework\bin\Debug\netstandard2.0\Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="EventStoreFramework">
+      <HintPath>..\..\..\..\..\FenergoCN\eventsourcedonboarding\EventSourcedOnboarding\EventStoreFramework\bin\Debug\netstandard2.0\EventStoreFramework.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
