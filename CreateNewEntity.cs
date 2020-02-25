@@ -6,15 +6,17 @@ using System.Threading.Tasks;
 
 using Amazon.Lambda.Core;
 using Domain;
+using Domain.Commands;
 using EventStore.ClientAPI;
 using EventStoreFramework;
+using EventStoreFramework.Command;
 
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
 
 namespace EventManager
 {
-    public class CreateEntity
+    public class CreateNewEntity
     {
         
         /// <summary>
@@ -33,9 +35,14 @@ namespace EventManager
 
             var repository = new EventStoreRepository(eventStoreConnection);
 
+            var commandHandlerMap = new CommandHandlerMap(new Handlers(repository));
+
+            var _commandDispatcher = new Dispatcher(commandHandlerMap);
+
             try
             {
-                repository.Save(input).GetAwaiter().GetResult();
+                var createEntityCommand = new CreateEntity(input.EntityName);
+                _commandDispatcher.Dispatch(createEntityCommand).Wait();
             }
             catch(Exception e)
             {
@@ -43,7 +50,7 @@ namespace EventManager
             }
 
             LambdaLogger.Log($"Calling function name: {context.FunctionName}\\n");
-            return $"Welcome: {input.EntityId}";
+            return $"Entity Created";
         }
     }
 }
