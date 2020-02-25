@@ -15,6 +15,6 @@
   "function-runtime": "dotnetcore2.1",
   "function-memory-size": 256,
   "function-timeout": 30,
-  "function-handler": "WriteToEventStoreFunction::WriteToEventStoreFunction.DisplayPerson::FunctionHandler",
+  "function-handler": "EventManager::EventManager.DisplayPerson::FunctionHandler",
   "function-role": "lambdaRole"
 }

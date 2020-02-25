@@ -11,13 +11,13 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="CommandFramework">
-      <HintPath>..\..\..\..\..\FenergoCN\eventsourcedonboarding\EventSourcedOnboarding\CommandFramework\bin\Debug\netstandard2.0\CommandFramework.dll</HintPath>
+      <HintPath>..\eventsourcedonboarding\EventSourcedOnboarding\CommandFramework\bin\Debug\netstandard2.0\CommandFramework.dll</HintPath>
     </Reference>
     <Reference Include="Domain">
-      <HintPath>..\..\..\..\..\FenergoCN\eventsourcedonboarding\EventSourcedOnboarding\EventStoreFramework\bin\Debug\netstandard2.0\Domain.dll</HintPath>
+      <HintPath>..\eventsourcedonboarding\EventSourcedOnboarding\Domain\bin\Debug\netstandard2.0\Domain.dll</HintPath>
     </Reference>
     <Reference Include="EventStoreFramework">
-      <HintPath>..\..\..\..\..\FenergoCN\eventsourcedonboarding\EventSourcedOnboarding\EventStoreFramework\bin\Debug\netstandard2.0\EventStoreFramework.dll</HintPath>
+      <HintPath>..\eventsourcedonboarding\EventSourcedOnboarding\EventStoreFramework\bin\Debug\netstandard2.0\EventStoreFramework.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>

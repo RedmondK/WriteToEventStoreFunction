@@ -12,9 +12,9 @@ using EventStoreFramework;
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
 
-namespace WriteToEventStoreFunction
+namespace EventManager
 {
-    public class DisplayPerson
+    public class CreateEntity
     {
         
         /// <summary>
@@ -23,7 +23,7 @@ namespace WriteToEventStoreFunction
         /// <param name="input"></param>
         /// <param name="context"></param>
         /// <returns></returns>
-        public string FunctionHandler(Person input, ILambdaContext context)
+        public string FunctionHandler(Case input, ILambdaContext context)
         {
             var eventStoreConnection = EventStoreConnection.Create(
                 ConnectionSettings.Default,
@@ -35,7 +35,7 @@ namespace WriteToEventStoreFunction
 
             try
             {
-                var result = repository.Save(input).GetAwaiter().GetResult();
+                repository.Save(input).GetAwaiter().GetResult();
             }
             catch(Exception e)
             {
@@ -43,9 +43,7 @@ namespace WriteToEventStoreFunction
             }
 
             LambdaLogger.Log($"Calling function name: {context.FunctionName}\\n");
-            Person saved = repository.Get<Person>(input.Id).GetAwaiter().GetResult();
-
-            return $"Welcome: {saved.firstName}";
+            return $"Welcome: {input.EntityId}";
         }
     }
 }
