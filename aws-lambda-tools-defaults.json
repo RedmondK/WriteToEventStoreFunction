@@ -12,9 +12,5 @@
   "region": "eu-west-1",
   "configuration": "Release",
   "framework": "netcoreapp2.1",
-  "function-runtime": "dotnetcore2.1",
-  "function-memory-size": 256,
-  "function-timeout": 30,
-  "function-handler": "EventManager::EventManager.CreateNewEntity::FunctionHandler",
-  "function-role": "lambdaRole"
+  "template": "serverless.template"
 }
